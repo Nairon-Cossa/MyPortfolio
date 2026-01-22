@@ -2,27 +2,21 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring, useInView } from 'framer-motion';
 import { 
   Github, Linkedin, Mail, Terminal, Cpu, 
-  Layers, ArrowUpRight, Code2, Sparkles, ChevronRight, Command
+  Layers, ArrowUpRight, Code2, Sparkles, ChevronRight, Command,
+  FileText, Printer, X, MapPin, Briefcase, GraduationCap, Code, Globe
 } from 'lucide-react';
 
 import naironImage from './assets/nairon.jpg'; 
 
-// Corrected Slugs for Simple Icons CDN
+// --- CONSTANTS ---
 const techStack = [
-  { name: "Java", slug: "openjdk" },
-  { name: "C#", slug: "csharp" },
-  { name: "JavaScript", slug: "javascript" },
-  { name: "SQL", slug: "postgresql" },
-  { name: "Firebase", slug: "firebase" },
-  { name: "React", slug: "react" },
-  { name: "Next.js", slug: "nextdotjs" },
-  { name: "Tailwind", slug: "tailwindcss" },
-  { name: "Stripe", slug: "stripe" },
-  { name: "Framer", slug: "framer" },
-  { name: "CSS3", slug: "css3" },
-  { name: "HTML5", slug: "html5" },
-  { name: "Vercel", slug: "vercel" },
-  { name: "GitHub", slug: "github" },
+  { name: "Java", slug: "openjdk" }, { name: "C#", slug: "csharp" },
+  { name: "JavaScript", slug: "javascript" }, { name: "SQL", slug: "postgresql" },
+  { name: "Firebase", slug: "firebase" }, { name: "React", slug: "react" },
+  { name: "Next.js", slug: "nextdotjs" }, { name: "Tailwind", slug: "tailwindcss" },
+  { name: "Stripe", slug: "stripe" }, { name: "Framer", slug: "framer" },
+  { name: "CSS3", slug: "css3" }, { name: "HTML5", slug: "html5" },
+  { name: "Vercel", slug: "vercel" }, { name: "GitHub", slug: "github" },
   { name: "Notion", slug: "notion" }
 ];
 
@@ -63,8 +57,151 @@ const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: nu
   );
 };
 
+// --- IMPROVED RESUME COMPONENT (STRICT A4) ---
+const ResumeView = ({ onClose }: { onClose: () => void }) => {
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[200] bg-slate-100 overflow-y-auto pb-20 print:p-0 print:bg-white"
+    >
+      {/* Navigation - Hidden on Print */}
+      <nav className="sticky top-0 z-[210] bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-4 mb-8 print:hidden">
+        <div className="max-w-4xl mx-auto flex justify-between items-center">
+          <button onClick={onClose} className="flex items-center gap-2 text-[10px] font-black tracking-widest text-slate-400 hover:text-emerald-600 transition-colors uppercase">
+            <X size={16} /> Close Preview
+          </button>
+          <button 
+            onClick={() => window.print()}
+            className="flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-[10px] font-black tracking-widest uppercase rounded-xl hover:bg-emerald-600 transition-all shadow-lg"
+          >
+            <Printer size={16} /> Print / Save PDF (A4)
+          </button>
+        </div>
+      </nav>
+
+      {/* A4 Paper Container */}
+      <div className="mx-auto bg-white shadow-2xl print:shadow-none w-[210mm] min-h-[297mm] p-[15mm] text-slate-900 leading-tight">
+        
+        {/* HEADER */}
+        <header className="border-b-2 border-slate-900 pb-6 mb-8 flex justify-between items-end">
+          <div>
+            <h1 className="text-4xl font-black tracking-tighter uppercase">Nairon Malone Cossa</h1>
+            <p className="text-emerald-600 font-bold text-sm tracking-widest uppercase mt-1">Full-Stack Software Engineer</p>
+          </div>
+          <div className="text-right text-[10px] font-bold text-slate-500 uppercase space-y-1">
+            <p className="flex items-center justify-end gap-2">Sandton, South Africa <MapPin size={10}/></p>
+            <p className="flex items-center justify-end gap-2">naironcossa.dev@gmail.com <Mail size={10}/></p>
+            <p className="flex items-center justify-end gap-2 text-slate-900">github.com/Nairon-Cossa <Github size={10}/></p>
+          </div>
+        </header>
+
+        {/* SUMMARY */}
+        <section className="mb-8">
+          <h3 className="text-xs font-black uppercase tracking-[0.3em] text-slate-400 mb-2">Professional Summary</h3>
+          <p className="text-[11px] text-slate-700 leading-relaxed font-medium">
+            21-year-old Computer Science student and Full-Stack Developer focused on building end-to-end digital products. 
+            Proven track record in architecting ERP systems and service marketplaces from initial concept to deployment. 
+            Expertise in bridging high-performance backend logic with pixel-perfect, animated user interfaces.
+          </p>
+        </section>
+
+        <div className="grid grid-cols-12 gap-8">
+          {/* LEFT COLUMN */}
+          <div className="col-span-4 space-y-8">
+            <section>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 pb-1 border-b border-slate-100">Core Skills</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-[9px] font-black text-slate-400 uppercase mb-1">Languages</p>
+                  <p className="text-[10px] font-bold">Java, C#, JavaScript, SQL, HTML/CSS</p>
+                </div>
+                <div>
+                  <p className="text-[9px] font-black text-slate-400 uppercase mb-1">Frameworks</p>
+                  <p className="text-[10px] font-bold">React, Next.js, Node.js, Tailwind CSS</p>
+                </div>
+                <div>
+                  <p className="text-[9px] font-black text-slate-400 uppercase mb-1">Tools</p>
+                  <p className="text-[10px] font-bold">Firebase, Git, Vercel, Stripe, Framer Motion</p>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 pb-1 border-b border-slate-100">Education</h3>
+              <p className="text-[11px] font-black uppercase">BSc Computer Science</p>
+              <p className="text-[10px] text-slate-500 font-bold uppercase italic mt-1 leading-tight">Ongoing Undergrad <br/> South Africa</p>
+            </section>
+          </div>
+
+          {/* RIGHT COLUMN */}
+          <div className="col-span-8 space-y-8">
+            <section>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 pb-1 border-b border-slate-100">Professional Experience</h3>
+              
+              <div className="space-y-6">
+                <div>
+                  <div className="flex justify-between items-baseline">
+                    <h4 className="text-sm font-black uppercase italic">Home Pro Help</h4>
+                    <span className="text-[9px] font-bold text-slate-400">2022 — PRESENT</span>
+                  </div>
+                  <p className="text-[10px] font-black text-emerald-600 uppercase mb-2">Co-Founder & Web Lead</p>
+                  <ul className="text-[10px] text-slate-600 space-y-1 list-disc ml-4 leading-normal">
+                    <li>Launched via a Startup Hackathon in 2022; responsible for the core web architecture.</li>
+                    <li>Designed and implemented the service marketplace MVP, focusing on booking logic and user flows.</li>
+                    <li>Currently maintaining the platform architecture and payment-ready infrastructure.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <div className="flex justify-between items-baseline">
+                    <h4 className="text-sm font-black uppercase italic">Independent Developer</h4>
+                    <span className="text-[9px] font-bold text-slate-400">2023 — PRESENT</span>
+                  </div>
+                  <p className="text-[10px] font-black text-emerald-600 uppercase mb-2">Full-Stack Consultant</p>
+                  <ul className="text-[10px] text-slate-600 space-y-1 list-disc ml-4 leading-normal">
+                    <li>Developed high-conversion landing pages and performance-optimized sites for various clients.</li>
+                    <li>Specialized in bridging complex database needs with modern, responsive React interfaces.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 pb-1 border-b border-slate-100">Key Projects</h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-[11px] font-black uppercase italic">Venda Já ERP</p>
+                  <p className="text-[10px] text-slate-600 leading-normal">Engineered a robust full-stack ERP for inventory and invoicing. Built relational database triggers for real-time stock sync and managed role-based access.</p>
+                </div>
+                <div>
+                  <p className="text-[11px] font-black uppercase italic">Angel's Path Agency</p>
+                  <p className="text-[10px] text-slate-600 leading-normal">Built a high-performance frontend with Framer Motion and Tailwind CSS. Optimized for Core Web Vitals and SEO.</p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <footer className="mt-12 pt-6 border-t border-slate-100 text-center">
+          <p className="text-[9px] font-black text-slate-300 uppercase tracking-widest">Nairon Malone Cossa — Portfolio Version 2026</p>
+        </footer>
+      </div>
+
+      <style>{`
+        @media print {
+          @page { size: A4; margin: 0; }
+          body { background: white !important; }
+          .print\\:hidden { display: none !important; }
+          .print\\:shadow-none { shadow: none !important; }
+        }
+      `}</style>
+    </motion.div>
+  );
+};
+
 export default function App() {
   const [showLoader, setShowLoader] = useState(true);
+  const [showResume, setShowResume] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const { scrollYProgress } = useScroll();
   const scrollSmooth = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
@@ -85,6 +222,11 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-[#F8F9FA] text-slate-900 overflow-hidden selection:bg-emerald-500 selection:text-white">
       
+      {/* Resume Overlay */}
+      <AnimatePresence>
+        {showResume && <ResumeView onClose={() => setShowResume(false)} />}
+      </AnimatePresence>
+
       {/* 1. THE VIRTUAL RAIL */}
       <div className="fixed right-6 top-1/2 -translate-y-1/2 h-64 w-[1px] bg-slate-200 z-50">
         <motion.div className="w-full bg-emerald-500 origin-top shadow-[0_0_15px_rgba(16,185,129,0.5)]" style={{ height: '100%', scaleY: scrollSmooth }} />
@@ -149,7 +291,16 @@ export default function App() {
                 <a href="#work" className="px-14 py-7 bg-slate-900 text-white font-black rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:bg-emerald-600 hover:-translate-y-1 transition-all duration-500 flex items-center gap-4 group">
                   EXPLORE SYSTEMS <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </a>
-                <div className="flex gap-4">
+                <div className="flex gap-4 items-center">
+                   {/* RESUME BUTTON */}
+                   <button 
+                    onClick={() => setShowResume(true)}
+                    className="p-5 rounded-3xl border-2 border-slate-900 bg-white hover:bg-slate-900 hover:text-white transition-all duration-300 text-slate-900 shadow-sm flex items-center gap-3 group"
+                   >
+                     <FileText size={24} />
+                     <span className="text-[10px] font-black uppercase tracking-widest pr-2">Resume</span>
+                   </button>
+
                    <a href="https://github.com/Nairon-Cossa" className="p-5 rounded-3xl border border-slate-200 bg-white hover:border-emerald-500 transition-colors text-slate-400 hover:text-emerald-500 shadow-sm"><Github size={24} /></a>
                    <a href="https://www.linkedin.com/in/nairon-cossa-dev" className="p-5 rounded-3xl border border-slate-200 bg-white hover:border-emerald-500 transition-colors text-slate-400 hover:text-emerald-500 shadow-sm"><Linkedin size={24} /></a>
                 </div>
@@ -180,7 +331,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. THE BENTO GRID - UPDATED LOGOS */}
+      {/* 4. THE BENTO GRID */}
       <section className="py-48 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
@@ -248,7 +399,7 @@ export default function App() {
              <div className="flex items-center justify-between border-l border-slate-100 pl-16">
                 <div className="text-center">
                    <p className="text-6xl font-black text-slate-900 tracking-tighter italic">21</p>
-                   <p className="text-[10px) font-black text-slate-300 uppercase tracking-widest mt-4">Years of Age</p>
+                   <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mt-4">Years of Age</p>
                 </div>
                 <div className="text-center">
                    <p className="text-6xl font-black text-slate-900 tracking-tighter italic">CS</p>
