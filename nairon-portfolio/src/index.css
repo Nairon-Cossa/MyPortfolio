@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F9FA;
+  --bg-tertiary: #F1F5F9;
+  --accent: #10b981;
+}
+
+::-webkit-scrollbar { width: 0px; }
+
+body {
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: #0f172a;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism 4.0 - Neumorphic Depth */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 4px 24px -1px rgba(0, 0, 0, 0.02),
+    0 2px 8px -1px rgba(0, 0, 0, 0.02);
+}
+
+.glass-panel:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--accent);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.06);
+}
+
+.bg-dot-grid {
+  background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+}
+
+@theme {
+  --animate-subtle-float: float 8s ease-in-out infinite;
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+  }
+}
