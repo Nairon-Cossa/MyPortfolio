@@ -31,7 +31,7 @@ const projects = [
   },
   {
     title: "Home Pro Help",
-    role: "Full-Stack Developer",
+    role: "Web Developer",
     description: "Developed a service marketplace MVP with booking flows, authentication, and payment-ready architecture. Focused on UX and scalable backend structure.",
     tech: ["Next.js", "Auth", "Payments", "UI/UX"],
     link: "https://homeprohelp.vercel.app/",
@@ -39,7 +39,7 @@ const projects = [
   },
   {
     title: "Angel's Path Agency",
-    role: "Frontend Developer",
+    role: "Web Developer",
     description: "Built a high-conversion landing page with animations and responsive layouts. Optimized for performance, SEO, and Core Web Vitals.",
     tech: ["Framer Motion", "Tailwind CSS", "Performance"],
     link: "https://angels-path-agency-6huy.vercel.app/",
@@ -387,7 +387,7 @@ export default function App() {
              <h2 className="text-xs font-black text-slate-400 uppercase tracking-[0.6em]">Professional Bio</h2>
           </div>
           <p className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-900 leading-[1.05]">
-            "My name is Nairon Malone Cossa. I’m a 21-year-old computer science student. I love anime, story-driven series, and obsessing over product UX."
+            "My name is Nairon Malone Cossa. I’m a 21-year-old computer science student. I love solving problems, creating or working on new ideas, and i also obsess over product UX."
           </p>
           <div className="grid md:grid-cols-2 gap-16 pt-10">
              <div className="space-y-6">
