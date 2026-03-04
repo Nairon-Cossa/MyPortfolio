@@ -23,31 +23,31 @@ const techStack = [
 const projects = [
   {
     title: "Venda Já ERP",
-    role: "Full-Stack Developer",
-    description: "Built a full-stack ERP system with inventory management, invoicing, and role-based access. Designed relational database schemas and implemented real-time stock updates.",
-    tech: ["Java", "SQL", "React", "REST API"],
+    role: "Founder & Full-Stack Developer",
+    description: "Architected and launched a comprehensive ERP solution for inventory management and invoicing. Built the entire infrastructure from the ground up using React and Firebase.",
+    tech: ["React", "Firebase", "Java", "SQL"],
     link: "https://venda-japro.vercel.app/",
     highlight: true
   },
   {
     title: "Home Pro Help",
     role: "Web Developer",
-    description: "Developed a service marketplace MVP with booking flows, authentication, and payment-ready architecture. Focused on UX and scalable backend structure.",
-    tech: ["Next.js", "Auth", "Payments", "UI/UX"],
+    description: "Developed the web architecture for a service marketplace. Focused on scalable UI/UX, complex booking logic, and seamless front-end integration.",
+    tech: ["React", "JavaScript", "UI/UX", "Architecture"],
     link: "https://homeprohelp.vercel.app/",
     highlight: false
   },
   {
     title: "Angel's Path Agency",
-    role: "Web Developer",
-    description: "Built a high-conversion landing page with animations and responsive layouts. Optimized for performance, SEO, and Core Web Vitals.",
-    tech: ["Framer Motion", "Tailwind CSS", "Performance"],
+    role: "Founder & Web Developer",
+    description: "Built a high-performance digital presence using React and Firebase. Integrated advanced animations and optimized for maximum SEO and conversion.",
+    tech: ["React", "Firebase", "Framer Motion", "Tailwind CSS"],
     link: "https://angels-path-agency-6huy.vercel.app/",
     highlight: false
   }
 ];
 
-const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => {
+const FadeIn = ({ children, delay = 0 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
@@ -57,14 +57,13 @@ const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: nu
   );
 };
 
-// --- IMPROVED RESUME COMPONENT (STRICT A4) ---
-const ResumeView = ({ onClose }: { onClose: () => void }) => {
+// --- IMPROVED RESUME COMPONENT ---
+const ResumeView = ({ onClose }) => {
   return (
     <motion.div 
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
       className="fixed inset-0 z-[200] bg-slate-100 overflow-y-auto pb-20 print:p-0 print:bg-white"
     >
-      {/* Navigation - Hidden on Print */}
       <nav className="sticky top-0 z-[210] bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-4 mb-8 print:hidden">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
           <button onClick={onClose} className="flex items-center gap-2 text-[10px] font-black tracking-widest text-slate-400 hover:text-emerald-600 transition-colors uppercase">
@@ -79,10 +78,7 @@ const ResumeView = ({ onClose }: { onClose: () => void }) => {
         </div>
       </nav>
 
-      {/* A4 Paper Container */}
       <div className="mx-auto bg-white shadow-2xl print:shadow-none w-[210mm] min-h-[297mm] p-[15mm] text-slate-900 leading-tight">
-        
-        {/* HEADER */}
         <header className="border-b-2 border-slate-900 pb-6 mb-8 flex justify-between items-end">
           <div>
             <h1 className="text-4xl font-black tracking-tighter uppercase">Nairon Malone Cossa</h1>
@@ -95,18 +91,16 @@ const ResumeView = ({ onClose }: { onClose: () => void }) => {
           </div>
         </header>
 
-        {/* SUMMARY */}
         <section className="mb-8">
           <h3 className="text-xs font-black uppercase tracking-[0.3em] text-slate-400 mb-2">Professional Summary</h3>
           <p className="text-[11px] text-slate-700 leading-relaxed font-medium">
-            21-year-old Computer Science student and Full-Stack Developer focused on building end-to-end digital products. 
-            Proven track record in architecting ERP systems and service marketplaces from initial concept to deployment. 
-            Expertise in bridging high-performance backend logic with pixel-perfect, animated user interfaces.
+            Results-driven Computer Science student and Full-Stack Developer focused on architecting scalable, production-ready digital products. 
+            Proven track record in building ERP systems and service marketplaces from scratch. 
+            Expertise in bridging high-performance backend logic with pixel-perfect, performance-optimized user interfaces.
           </p>
         </section>
 
         <div className="grid grid-cols-12 gap-8">
-          {/* LEFT COLUMN */}
           <div className="col-span-4 space-y-8">
             <section>
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 pb-1 border-b border-slate-100">Core Skills</h3>
@@ -133,7 +127,6 @@ const ResumeView = ({ onClose }: { onClose: () => void }) => {
             </section>
           </div>
 
-          {/* RIGHT COLUMN */}
           <div className="col-span-8 space-y-8">
             <section>
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 pb-1 border-b border-slate-100">Professional Experience</h3>
@@ -144,23 +137,26 @@ const ResumeView = ({ onClose }: { onClose: () => void }) => {
                     <h4 className="text-sm font-black uppercase italic">Home Pro Help</h4>
                     <span className="text-[9px] font-bold text-slate-400">2022 — PRESENT</span>
                   </div>
-                  <p className="text-[10px] font-black text-emerald-600 uppercase mb-2">Co-Founder & Web Lead</p>
+                  <p className="text-[10px] font-black text-emerald-600 uppercase mb-2">Web Developer</p>
                   <ul className="text-[10px] text-slate-600 space-y-1 list-disc ml-4 leading-normal">
-                    <li>Launched via a Startup Hackathon in 2022; responsible for the core web architecture.</li>
-                    <li>Designed and implemented the service marketplace MVP, focusing on booking logic and user flows.</li>
-                    <li>Currently maintaining the platform architecture and payment-ready infrastructure.</li>
+                    <li>Joined as a founding member following a Startup Hackathon in 2022.</li>
+                    <li>Architected the core web infrastructure and designed the service marketplace MVP.</li>
+                    <li>Developed high-conversion user flows and implemented complex booking logic.</li>
+                    <li>Maintaining technical direction for web-based product iterations.</li>
                   </ul>
                 </div>
 
                 <div>
                   <div className="flex justify-between items-baseline">
-                    <h4 className="text-sm font-black uppercase italic">Independent Developer</h4>
+                    <h4 className="text-sm font-black uppercase italic">Independent Developer / Founder</h4>
                     <span className="text-[9px] font-bold text-slate-400">2023 — PRESENT</span>
                   </div>
-                  <p className="text-[10px] font-black text-emerald-600 uppercase mb-2">Full-Stack Consultant</p>
+                  <p className="text-[10px] font-black text-emerald-600 uppercase mb-2">Full-Stack Software Engineer</p>
                   <ul className="text-[10px] text-slate-600 space-y-1 list-disc ml-4 leading-normal">
-                    <li>Developed high-conversion landing pages and performance-optimized sites for various clients.</li>
-                    <li>Specialized in bridging complex database needs with modern, responsive React interfaces.</li>
+                    <li>Founded and engineered **Venda Já**, a full-stack ERP system built with React and Firebase for real-time inventory tracking and invoicing.</li>
+                    <li>Developed **Angel's Path Agency** platform, implementing Firebase for backend services and React for a high-performance UI.</li>
+                    <li>Specializing in the integration of cloud-based NoSQL databases (Firebase) with modern front-end frameworks.</li>
+                    <li>Consulting on UI/UX best practices to increase operational efficiency for digital products.</li>
                   </ul>
                 </div>
               </div>
@@ -170,12 +166,12 @@ const ResumeView = ({ onClose }: { onClose: () => void }) => {
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 pb-1 border-b border-slate-100">Key Projects</h3>
               <div className="space-y-4">
                 <div>
-                  <p className="text-[11px] font-black uppercase italic">Venda Já ERP</p>
-                  <p className="text-[10px] text-slate-600 leading-normal">Engineered a robust full-stack ERP for inventory and invoicing. Built relational database triggers for real-time stock sync and managed role-based access.</p>
+                  <p className="text-[11px] font-black uppercase italic">Venda Já ERP (React + Firebase)</p>
+                  <p className="text-[10px] text-slate-600 leading-normal">Engineered a robust full-stack ERP. Built real-time stock sync and role-based access using Firebase Authentication and Firestore.</p>
                 </div>
                 <div>
-                  <p className="text-[11px] font-black uppercase italic">Angel's Path Agency</p>
-                  <p className="text-[10px] text-slate-600 leading-normal">Built a high-performance frontend with Framer Motion and Tailwind CSS. Optimized for Core Web Vitals and SEO.</p>
+                  <p className="text-[11px] font-black uppercase italic">Angel's Path Agency (React + Firebase)</p>
+                  <p className="text-[10px] text-slate-600 leading-normal">Built a high-performance frontend with Framer Motion. Leveraged Firebase for data handling and optimized for Core Web Vitals.</p>
                 </div>
               </div>
             </section>
@@ -207,7 +203,7 @@ export default function App() {
   const scrollSmooth = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY });
+    const handleMouseMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
     window.addEventListener('mousemove', handleMouseMove);
     const timer = setTimeout(() => setShowLoader(false), 2200);
     return () => {
@@ -222,18 +218,17 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-[#F8F9FA] text-slate-900 overflow-hidden selection:bg-emerald-500 selection:text-white">
       
-      {/* Resume Overlay */}
       <AnimatePresence>
         {showResume && <ResumeView onClose={() => setShowResume(false)} />}
       </AnimatePresence>
 
-      {/* 1. THE VIRTUAL RAIL */}
+      {/* VIRTUAL RAIL */}
       <div className="fixed right-6 top-1/2 -translate-y-1/2 h-64 w-[1px] bg-slate-200 z-50">
         <motion.div className="w-full bg-emerald-500 origin-top shadow-[0_0_15px_rgba(16,185,129,0.5)]" style={{ height: '100%', scaleY: scrollSmooth }} />
         <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 text-[8px] font-black tracking-[0.3em] text-slate-400 uppercase [writing-mode:vertical-lr]">N_PORTFOLIO_v4</div>
       </div>
 
-      {/* 2. DYNAMIC AMBIENCE */}
+      {/* AMBIENCE */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.4]" />
         <motion.div 
@@ -247,19 +242,18 @@ export default function App() {
         {showLoader && (
           <motion.div exit={{ opacity: 0 }} className="fixed inset-0 z-[120] bg-white flex flex-col items-center justify-center">
              <div className="flex gap-2 mb-6">
-                {[...Array(3)].map((_, i) => (
-                  <motion.div key={i} animate={{ scale: [1, 1.5, 1], opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1.2, delay: i * 0.2 }} className="w-2 h-2 rounded-full bg-emerald-500" />
-                ))}
+               {[...Array(3)].map((_, i) => (
+                 <motion.div key={i} animate={{ scale: [1, 1.5, 1], opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1.2, delay: i * 0.2 }} className="w-2 h-2 rounded-full bg-emerald-500" />
+               ))}
              </div>
              <p className="text-[10px] font-black tracking-[1em] text-slate-300 uppercase">System.Loading</p>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* 3. HERO SECTION */}
+      {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center px-6 lg:px-24">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-20 items-center pt-20">
-          
           <div className="lg:col-span-8 space-y-12 z-10">
             <FadeIn>
               <div className="inline-flex items-center gap-4 px-4 py-1.5 rounded-full bg-white border border-slate-100 shadow-sm">
@@ -282,7 +276,7 @@ export default function App() {
 
             <FadeIn delay={0.2}>
               <p className="max-w-2xl text-2xl text-slate-400 leading-relaxed font-light">
-                I’m a 21-year-old developer who builds and ships <span className="text-slate-900 font-medium">real products</span> end-to-end. I bridge the gap between heavy backend logic and pixel-perfect UI.
+                I architect and ship <span className="text-slate-900 font-medium">robust digital systems</span> end-to-end. I specialize in bridging high-performance backend logic with pixel-perfect, interactive user interfaces.
               </p>
             </FadeIn>
 
@@ -292,7 +286,6 @@ export default function App() {
                   EXPLORE SYSTEMS <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </a>
                 <div className="flex gap-4 items-center">
-                   {/* RESUME BUTTON */}
                    <button 
                     onClick={() => setShowResume(true)}
                     className="p-5 rounded-3xl border-2 border-slate-900 bg-white hover:bg-slate-900 hover:text-white transition-all duration-300 text-slate-900 shadow-sm flex items-center gap-3 group"
@@ -300,9 +293,8 @@ export default function App() {
                      <FileText size={24} />
                      <span className="text-[10px] font-black uppercase tracking-widest pr-2">Resume</span>
                    </button>
-
-                   <a href="https://github.com/Nairon-Cossa" className="p-5 rounded-3xl border border-slate-200 bg-white hover:border-emerald-500 transition-colors text-slate-400 hover:text-emerald-500 shadow-sm"><Github size={24} /></a>
-                   <a href="https://www.linkedin.com/in/nairon-cossa-dev" className="p-5 rounded-3xl border border-slate-200 bg-white hover:border-emerald-500 transition-colors text-slate-400 hover:text-emerald-500 shadow-sm"><Linkedin size={24} /></a>
+                   <a href="https://github.com/Nairon-Cossa" target="_blank" rel="noopener noreferrer" className="p-5 rounded-3xl border border-slate-200 bg-white hover:border-emerald-500 transition-colors text-slate-400 hover:text-emerald-500 shadow-sm"><Github size={24} /></a>
+                   <a href="https://www.linkedin.com/in/nairon-cossa-dev" target="_blank" rel="noopener noreferrer" className="p-5 rounded-3xl border border-slate-200 bg-white hover:border-emerald-500 transition-colors text-slate-400 hover:text-emerald-500 shadow-sm"><Linkedin size={24} /></a>
                 </div>
               </div>
             </FadeIn>
@@ -331,7 +323,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. THE BENTO GRID */}
+      {/* BENTO GRID */}
       <section className="py-48 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
@@ -372,14 +364,14 @@ export default function App() {
                   <div className="absolute -top-10 -right-10 w-48 h-48 bg-emerald-500/20 rounded-full blur-[80px]" />
                   <Sparkles className="text-emerald-400 mb-6" size={32} />
                   <h3 className="text-2xl font-bold italic tracking-tight underline decoration-emerald-500 underline-offset-8">Production First</h3>
-                  <p className="text-slate-400 text-sm mt-6 leading-relaxed">Building tools that solve real business problems, from payments to data.</p>
+                  <p className="text-slate-400 text-sm mt-6 leading-relaxed">Building tools that solve real business problems, from infrastructure to interface.</p>
                </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. ABOUT SECTION */}
+      {/* ABOUT SECTION */}
       <section className="py-48 px-6 bg-white relative">
         <div className="max-w-4xl mx-auto space-y-16">
           <div className="flex items-center gap-6">
@@ -387,19 +379,19 @@ export default function App() {
              <h2 className="text-xs font-black text-slate-400 uppercase tracking-[0.6em]">Professional Bio</h2>
           </div>
           <p className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-900 leading-[1.05]">
-            "My name is Nairon Malone Cossa. I’m a 21-year-old computer science student. I love solving problems, creating or working on new ideas, and i also obsess over product UX."
+            "My name is Nairon Malone Cossa. I’m a computer science student and software engineer who obsesses over problem-solving and high-quality product UX."
           </p>
           <div className="grid md:grid-cols-2 gap-16 pt-10">
              <div className="space-y-6">
                 <p className="text-[10px] font-black text-emerald-500 uppercase tracking-[0.4em]">Core Interests</p>
                 <p className="text-2xl text-slate-500 font-light leading-relaxed">
-                  "I’m especially interested in <span className="text-slate-900 font-semibold underline decoration-slate-200">tech companies</span>, startups, product design, and story-driven tech."
+                  "I’m specifically interested in partnering with <span className="text-slate-900 font-semibold underline decoration-slate-200">tech companies</span> and startups to build story-driven, impactful technology."
                 </p>
              </div>
              <div className="flex items-center justify-between border-l border-slate-100 pl-16">
                 <div className="text-center">
-                   <p className="text-6xl font-black text-slate-900 tracking-tighter italic">21</p>
-                   <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mt-4">Years of Age</p>
+                   <p className="text-6xl font-black text-slate-900 tracking-tighter italic">DEV</p>
+                   <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mt-4">Full-Stack Focus</p>
                 </div>
                 <div className="text-center">
                    <p className="text-6xl font-black text-slate-900 tracking-tighter italic">CS</p>
@@ -410,7 +402,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 6. PROJECTS */}
+      {/* PROJECTS */}
       <section id="work" className="py-48 px-6 bg-[#FAFAFA]">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-end mb-32">
@@ -430,7 +422,7 @@ export default function App() {
                 <div className="group bg-white p-14 rounded-[5rem] h-full flex flex-col border border-slate-100 hover:border-emerald-500/20 transition-all duration-700 shadow-sm hover:shadow-2xl">
                   <div className="flex justify-between items-start mb-16 mt-4">
                     <div className="w-16 h-16 bg-slate-50 rounded-[2rem] flex items-center justify-center text-slate-400 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500 shadow-inner"><Terminal size={32} /></div>
-                    <a href={p.link} target="_blank" className="p-4 rounded-full bg-slate-50 hover:bg-emerald-50 transition-all"><ArrowUpRight size={24} /></a>
+                    <a href={p.link} target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-slate-50 hover:bg-emerald-50 transition-all"><ArrowUpRight size={24} /></a>
                   </div>
                   <h3 className="text-3xl font-black mb-4 tracking-tight text-slate-900">{p.title}</h3>
                   <p className="text-[11px] font-black text-emerald-500 uppercase tracking-[0.3em] mb-10">{p.role}</p>
@@ -445,22 +437,29 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. FOOTER */}
+      {/* FOOTER */}
       <footer className="py-56 px-6 text-center bg-white relative">
         <div className="max-w-6xl mx-auto">
            <h2 className="text-[10rem] md:text-[18rem] font-black tracking-tighter mb-20 text-slate-900 opacity-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none">COSSA</h2>
            <h2 className="text-7xl md:text-9xl font-black tracking-tighter mb-24 relative z-10 text-slate-900">Let's Build<span className="text-emerald-500">.</span></h2>
            
            <div className="flex justify-center gap-12 relative z-10 mb-40">
-              {[
+             {[
                 { icon: <Github size={36} />, link: "https://github.com/Nairon-Cossa" },
                 { icon: <Linkedin size={36} />, link: "https://www.linkedin.com/in/nairon-cossa-dev" },
                 { icon: <Mail size={36} />, link: "mailto:naironcossa.dev@gmail.com" }
-              ].map((social, i) => (
-                <motion.a key={i} whileHover={{ y: -12, scale: 1.15 }} href={social.link} className="w-28 h-28 bg-white border border-slate-100 rounded-[3rem] flex items-center justify-center text-slate-300 hover:text-emerald-500 hover:shadow-2xl hover:border-emerald-100 transition-all duration-500">
+             ].map((social, i) => (
+                <motion.a 
+                  key={i} 
+                  whileHover={{ y: -12, scale: 1.15 }} 
+                  href={social.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-28 h-28 bg-white border border-slate-100 rounded-[3rem] flex items-center justify-center text-slate-300 hover:text-emerald-500 hover:shadow-2xl hover:border-emerald-100 transition-all duration-500"
+                >
                   {social.icon}
                 </motion.a>
-              ))}
+             ))}
            </div>
 
            <div className="flex flex-col md:flex-row justify-between items-center gap-10 pt-16 border-t border-slate-100 relative z-10">
